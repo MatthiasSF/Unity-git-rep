@@ -352,10 +352,10 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
-"Assets/FallingObject.cs"
-"Assets/Mover.cs"
-"Assets/ObjectHit.cs"
-"Assets/Score.cs"
+"Assets/Scripts/FallingObject.cs"
+"Assets/Scripts/Mover.cs"
+"Assets/Scripts/ObjectHit.cs"
+"Assets/Scripts/Score.cs"
 -langversion:9.0
 
 /deterministic
