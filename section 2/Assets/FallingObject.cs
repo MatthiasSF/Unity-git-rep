@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class FallingObject : MonoBehaviour
 {
-    float fallTimer = 3f;
+    [SerializeField] float fallTimer = 3f;
+    MeshRenderer mRenderer;
+    Rigidbody body;
     // Start is called before the first frame update
     void Start()
     {
-        
+        mRenderer = GetComponent<MeshRenderer>();
+        body = GetComponent<Rigidbody>();
+
+        mRenderer.enabled = false;
+        body.useGravity = false;
     }
 
     // Update is called once per frame
@@ -19,11 +25,10 @@ public class FallingObject : MonoBehaviour
         
     }
     void startFalling (float gameTime){
-        float fallSpeed = -58 * Time.deltaTime;
 
         if (gameTime >= fallTimer){
-            
-            transform.Translate(0,fallSpeed,0);
+            mRenderer.enabled = true;
+            body.useGravity = true;
         }
     }
 }
