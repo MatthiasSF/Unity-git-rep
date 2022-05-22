@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Driver : MonoBehaviour
 {
-    [SerializeField] float steerSpeed = 1f;
-    [SerializeField] float moveSpeed = 0.001f;
+    [SerializeField] float steerSpeed = 100f;
+    [SerializeField] float moveSpeed = 10f;
+    [SerializeField] float boostSpeed = 15f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,9 +16,18 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
         float acceleration = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
         transform.Rotate(0,0,-steerAmount);
         transform.Translate(0,acceleration,0);
+    }
+    void OnTriggerEnter2D (Collider2D other){
+        if (other.tag == "Boost"){
+            moveSpeed = boostSpeed;
+        }
+    }
+    void OnCollisionEnter2D (Collision2D other){
+        moveSpeed = 10f;
     }
 }
