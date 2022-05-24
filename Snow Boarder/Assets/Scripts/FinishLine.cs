@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     public  SurfaceEffector2D groundShape;
+    [SerializeField] ParticleSystem finishEffect;
 
     private void Start() {
         
@@ -13,7 +14,8 @@ public class FinishLine : MonoBehaviour
        groundShape = FindObjectOfType<SurfaceEffector2D>();
        if(other.tag == "Player"){
            groundShape.speed = 0;
-           Invoke ("LoadLevel",1f);
+           finishEffect.Play();
+           Invoke ("LoadLevel",1.5f);
        }
    }
    private void LoadLevel(){
