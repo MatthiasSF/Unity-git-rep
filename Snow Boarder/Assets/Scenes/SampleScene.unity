@@ -3063,7 +3063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fa2678df517c2d44880cabce2442364, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  torqueForce: 6
+  torqueForce: 14.41
   groundShape: {fileID: 1744629038}
 --- !u!114 &841198742
 MonoBehaviour:
