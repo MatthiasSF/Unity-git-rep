@@ -15,6 +15,7 @@ public class FinishLine : MonoBehaviour
        if(other.tag == "Player"){
            groundShape.speed = 0;
            finishEffect.Play();
+           GetComponent<AudioSource>().Play();
            Invoke ("LoadLevel",1.5f);
        }
    }

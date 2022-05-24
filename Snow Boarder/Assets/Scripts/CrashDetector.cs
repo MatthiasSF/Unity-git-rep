@@ -7,12 +7,16 @@ public class CrashDetector : MonoBehaviour
 {
     [SerializeField] SurfaceEffector2D groundShape;
     [SerializeField] ParticleSystem crashEffect;
- private void OnTriggerEnter2D(Collider2D other) {
-     if(other.tag == "Evil"){
+    bool isCrashed = false;
+ public void OnTriggerEnter2D(Collider2D other) {
+    
+     if(other.tag == "Evil" && !isCrashed){
+         FindObjectOfType<PlayerController>().DisableControls();
          crashEffect.Play();
-         groundShape.speed = 0.3f;
+         GetComponent<AudioSource>().Play();
+         groundShape.speed = 0f;
          Invoke ("LoadLevel",1.5f);
-         
+         isCrashed = true;
      }
  }
  private void LoadLevel(){
